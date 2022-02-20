@@ -8,7 +8,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
+default_border pixel 3
 default_floating_border normal
 
 # Hide borders
@@ -16,7 +16,7 @@ hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 3
 bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -80,10 +80,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # resize windows
-bindsym $mod+Ctrl+Right resize shrink width 5 px or 5 ppt
-bindsym $mod+Ctrl+Down resize grow height 5 px or 5 ppt
-bindsym $mod+Ctrl+Up resize shrink height 5 px or 5 ppt
-bindsym $mod+Ctrl+Left resize grow width 5 px or 5 ppt
+bindsym $mod+Ctrl+Right resize shrink width 50 px or 5 ppt
+bindsym $mod+Ctrl+Down resize grow height 50 px or 5 ppt
+bindsym $mod+Ctrl+Up resize shrink height 50 px or 5 ppt
+bindsym $mod+Ctrl+Left resize grow width 50 px or 5 ppt
 
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left
@@ -123,6 +123,9 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
+# open a floating terminal 
+bindsym $mod+Shift+Return exec terminal -e 'i3-msg floating toggle'
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -281,14 +284,14 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id manjaro-hello
+#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id blueman-applet &
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
@@ -387,7 +390,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

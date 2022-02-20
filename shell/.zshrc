@@ -164,11 +164,10 @@ pxdown() {
     unset https_proxy
 }
 
-
 # music 
 sp() {
     pkill spotifyd
-    spotifyd -b pulseaudio -u 1216414009@qq.com -p qq1216414009
+    spotifyd -b pulseaudio -u 1216414009@qq.com -p hello_807916
     spt
 }
 
@@ -181,7 +180,25 @@ alias wecall="/opt/deepinwine/tools/sendkeys.sh w wechat 4"
 # fakefetch
 fakefetch() {
     sleep 1
-    cat ~/fakefetch.txt
+    lolcat ~/fakefetch.txt
+}
+
+# music player() 
+player() {
+    i3-msg floating toggle
+    i3-msg resize shrink width 600 px 
+    i3-msg resize shrink height 460 px 
+    for i in {1..100}
+    do
+        i3-msg move right
+        sleep 0.0005
+    done
+    for i in {1..18}
+    do
+        i3-msg move up
+        sleep 0.0005
+    done
+    cava
 }
 
 # leftscreen 
@@ -190,8 +207,9 @@ alias leftscreen="xrandr --output HDMI-1-1 --left-of eDP-1 --auto"
 # proxychains 
 alias px="proxychains"
 
+# backround setting
+alias background="nitrogen"
+
 # fetch
-neofetch
-
-
-
+#neofetch
+figlet '[ jt_arch ]' | lolcat 
